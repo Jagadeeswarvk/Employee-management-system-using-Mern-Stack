@@ -6,21 +6,32 @@ import { Link } from "react-router-dom";
 function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
   const [error, setError] = useState("");
   const nav = useNavigate();
 
+=======
+  const nav = useNavigate();
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post("http://localhost:3001/users/login", { userName, password })
       .then((response) => {
+<<<<<<< HEAD
         localStorage.setItem("auth-token", response.data);
+=======
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
         console.log("login successful");
         nav("/dashboard");
       })
       .catch((error) => {
+<<<<<<< HEAD
         setError(error.response.data.error);
         console.log(error.response.data.error);
+=======
+        console.log(error);
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
       });
   };
 
@@ -52,7 +63,10 @@ function Login() {
             required
           />
         </div>
+<<<<<<< HEAD
         {error && <p>{error}</p>}
+=======
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
         <br></br>
         <button type="submit" className="login-btn">
           Login

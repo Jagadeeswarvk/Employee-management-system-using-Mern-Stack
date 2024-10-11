@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+<<<<<<< HEAD
 import './dashboard.css';
 import { useNavigate } from "react-router-dom";
+=======
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
 
 function Dashboard() {
   const [employees, setEmployees] = useState([]);
@@ -17,8 +20,11 @@ function Dashboard() {
   const [_id, set_id] = useState("");
   //const [refresh, setRefresh] = useState(true);
 
+<<<<<<< HEAD
   const token =localStorage.getItem("auth-token");
   const navigate = useNavigate();
+=======
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -26,6 +32,7 @@ function Dashboard() {
   });
   async function fetchEmployees() {
     try {
+<<<<<<< HEAD
       const { data } = await axios.get(
         "http://localhost:3001/employee/getEmployees",
         {
@@ -36,13 +43,36 @@ function Dashboard() {
       );
       setEmployees(data);
       console.log(data);
+=======
+      const response = await axios.get(
+        "http://localhost:3001/employee/getEmployees"
+      );
+      setEmployees(response.data);
+      console.log(response.data);
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
+<<<<<<< HEAD
     fetchEmployees();
   },[]);
+=======
+    async function fetchEmployees() {
+      try {
+        const response = await axios.get(
+          "http://localhost:3001/employee/getEmployees"
+        );
+        setEmployees(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchEmployees();
+  }, []);
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
 
   //console.log("out of use effect", employees);
   const addNewEmployee = (e) => {
@@ -80,6 +110,7 @@ function Dashboard() {
     }).then((result) => {
       if (result.value) {
         axios
+<<<<<<< HEAD
           .post(
             "http://localhost:3001/employee/delete",
             { _id },
@@ -89,6 +120,9 @@ function Dashboard() {
               },
             }
           )
+=======
+          .post("http://localhost:3001/employee/delete", { _id })
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
           .then((response) => {
             console.log("employee deleted");
             fetchEmployees();
@@ -109,6 +143,7 @@ function Dashboard() {
     });
   };
 
+<<<<<<< HEAD
   const handleLogout = () => {
     // Remove the JWT token from localStorage
     localStorage.removeItem("auth-token");
@@ -118,6 +153,8 @@ function Dashboard() {
   };
 
 
+=======
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -131,6 +168,7 @@ function Dashboard() {
     }
 
     axios
+<<<<<<< HEAD
       .post(
         "http://localhost:3001/employee/edit",
         {
@@ -147,6 +185,16 @@ function Dashboard() {
           },
         }
       )
+=======
+      .post("http://localhost:3001/employee/edit", {
+        _id,
+        firstName,
+        lastName,
+        email,
+        salary,
+        date,
+      })
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
       .then((response) => {
         console.log("data updated");
         fetchEmployees();
@@ -177,6 +225,7 @@ function Dashboard() {
       });
     }
     axios
+<<<<<<< HEAD
       .post(
         "http://localhost:3001/employee/addEmployee",
         {
@@ -192,6 +241,15 @@ function Dashboard() {
           },
         }
       )
+=======
+      .post("http://localhost:3001/employee/addEmployee", {
+        firstName,
+        lastName,
+        email,
+        salary,
+        date,
+      })
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
       .then((response) => {
         console.log("successfully employee added");
         fetchEmployees();
@@ -215,6 +273,7 @@ function Dashboard() {
       {!isAdding && !isEditing && (
         <>
           <header>
+<<<<<<< HEAD
             <div class="head-container">
               <div class="heading">
                 <h1>Employee Management System</h1>
@@ -223,6 +282,9 @@ function Dashboard() {
                 <button onClick={handleLogout}>logout</button>
               </div>
             </div>
+=======
+            <h1>Employee Management System</h1>
+>>>>>>> fe21d27606e0dfbcb7a4905919436531c0531482
             <div style={{ marginTop: "30px", marginBottom: "18px" }}>
               <button onClick={addNewEmployee} className="round-button">
                 Add Employee
