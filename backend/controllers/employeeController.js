@@ -1,6 +1,5 @@
 const express = require("express");
 const Employee = require("../models/employee");
-const { findOne } = require("../models/user");
 
 exports.edit = async (req, res) => {
   const { _id, firstName, lastName, email, salary, date } = req.body;
