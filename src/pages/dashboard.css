@@ -1,0 +1,6 @@
+.head-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Full height of the viewport */
+}
